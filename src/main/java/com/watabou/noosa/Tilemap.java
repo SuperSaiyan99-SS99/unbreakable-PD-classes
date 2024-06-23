@@ -76,6 +76,10 @@ public class Tilemap extends Visual {
 		updated.set( 0, 0, mapWidth, mapHeight );
 	}
 	
+	protected int getTile( int pos ) {
+		return data[pos];
+	}
+	
 	protected void updateVertices() {
 		
 		float y1 = cellH * updated.top;
@@ -91,7 +95,7 @@ public class Tilemap extends Visual {
 			
 			for (int j=updated.left; j < updated.right; j++) {
 
-				RectF uv = tileset.get( data[pos++] );
+				RectF uv = tileset.get( getTile( pos++ ) );
 			
 				vertices[0] 	= x1;
 				vertices[1] 	= y1;
